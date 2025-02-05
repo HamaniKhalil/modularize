@@ -1,15 +1,15 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.compose.compiler)
 }
 
 android {
-    namespace = "com.example.modularize"
+    namespace = "com.modularize"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.modularize"
+        applicationId = "com.modularize"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -28,11 +28,18 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     kotlinOptions {
-        jvmTarget = "11"
+        version = libs.versions.kotlin.get()
+        jvmTarget = libs.versions.kotlinJvm.get()
+    }
+
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
     buildFeatures {
         compose = true
@@ -40,6 +47,8 @@ android {
 }
 
 dependencies {
+
+    implementation(projects.ui)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

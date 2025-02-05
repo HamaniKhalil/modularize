@@ -20,5 +20,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Modularize"
-include(":app")
- 
+include(
+    ":app"
+)
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+include(":ui")

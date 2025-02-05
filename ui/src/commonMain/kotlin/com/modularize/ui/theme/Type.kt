@@ -1,4 +1,4 @@
-package com.example.modularize.ui.theme
+package com.modularize.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
