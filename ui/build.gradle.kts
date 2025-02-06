@@ -12,6 +12,10 @@ kotlin {
     jvm()
 
     sourceSets {
+        sourceSets.commonMain {
+            kotlin.srcDir("src/commonMain")
+        }
+
         commonMain.dependencies {
             implementation(compose.foundation)
             implementation(compose.ui)
