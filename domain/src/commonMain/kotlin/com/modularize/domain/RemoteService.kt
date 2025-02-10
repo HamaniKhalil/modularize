@@ -1,26 +1,22 @@
 package com.modularize.domain
 
-import com.modularize.domain.model.Currency
-import com.modularize.domain.model.Post
-import com.modularize.domain.model.Price
+import com.modularize.domain.model.Authorization
+import com.modularize.domain.model.Listing
 import com.modularize.domain.model.User
 
 interface RemoteService {
 
+    // ==== Login ====
+    fun login(email: String, password: String): Authorization?
+
     // ==== User ====
     fun getUser(remoteId: Int): User
 
-    // ==== Price ====
-    fun getPrice(remoteId: Int): Price
+    fun updateUserInformation(remoteId: Int, firstname: String, lastname: String): User
 
-    fun updatePriceValue(remoteId: Int, value: Double)
+    // ==== Listing ====
+    fun createListing(listing: Listing)
 
-    // ==== Currency ====
-    fun getCurrency(remoteId: Int): Currency
-
-    // ==== Post ====
-    fun createPost(post: Post)
-
-    fun updatePostInformation(postId: Int, title: String, description: String)
+    fun updateListing(listing: Listing)
 
 }
