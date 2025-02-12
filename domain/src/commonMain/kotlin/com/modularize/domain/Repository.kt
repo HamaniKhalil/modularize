@@ -1,6 +1,5 @@
 package com.modularize.domain
 
-import com.modularize.domain.exceptions.UnauthorizedLoginException
 import com.modularize.domain.model.Listing
 import com.modularize.domain.model.Listing.Companion.NO_ID
 import kotlinx.datetime.Clock
@@ -12,7 +11,7 @@ class Repository(
     // ==== Login ===
     fun loginAndCreateUserIfNotExists(email: String, password: String) {
         val authorization =
-            remoteService.login(email, password) ?: throw UnauthorizedLoginException()
+            remoteService.login(email, password) ?: throw IllegalStateException()
         localService.storeTokens(authorization)
 
         val user = remoteService.getUser(authorization.remoteUserId)
