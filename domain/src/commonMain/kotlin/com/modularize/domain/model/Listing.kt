@@ -7,7 +7,7 @@ data class Listing(
     val author: User,
     val title: String,
     val description: String,
-    val price: Double,
+    // TODO: Add price here
     var updatedAt: Instant?,
     var serverId: Int = -1,
     val needSync: Boolean,

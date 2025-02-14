@@ -4,5 +4,5 @@ data class User(
     val id: Int,
     val firstname: String,
     val lastname: String,
-    var serverId: Int?,
+    var serverId: Int,
 )

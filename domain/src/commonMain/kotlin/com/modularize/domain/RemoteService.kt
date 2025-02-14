@@ -7,7 +7,7 @@ import com.modularize.domain.model.User
 interface RemoteService {
 
     // ==== Login ====
-    fun login(email: String, password: String): Authorization?
+    fun login(email: String, password: String): Authorization
 
     // ==== User ====
     fun getUser(remoteId: Int): User

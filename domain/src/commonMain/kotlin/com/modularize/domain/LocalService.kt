@@ -13,15 +13,23 @@ interface LocalService {
     // ==== User ====
     fun userExists(remoteId: Int): Boolean
 
+    fun getUser(id: Int): User
+
     fun createUser(user: User)
 
     fun updateUserInformation(id: Int, firstname: String, lastname: String)
 
     // ==== Listing ====
+    fun listingExists(listingId: Int): Boolean
+
     fun createListing(listing: Listing)
 
     fun updateListingInformation(listingId: Int, title: String, description: String, updatedAt: Instant)
 
     fun updateListingSyncStatus(listingId: Int, needSync: Boolean)
+
+    fun getUnsynchronizedListings(user: User): List<Listing>
+
+    fun getListingsToSynchronize(): List<Listing>
 
 }

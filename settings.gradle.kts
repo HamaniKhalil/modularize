@@ -27,3 +27,4 @@ include(
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":ui")
 include(":domain")
+include(":usecases")
